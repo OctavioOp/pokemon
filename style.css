@@ -1,0 +1,7 @@
+img{
+    border: 2px solid white;
+    border-radius: 100%;
+    background-image: url('https://entresabanasyalmohadas.files.wordpress.com/2016/02/pokeball.png');
+    width: 50%;
+    background-size: cover;
+}
