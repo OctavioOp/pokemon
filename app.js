@@ -5,8 +5,9 @@ $(document).ready(function () {
     );
   }
 
-  $("img").on("click", function () {
-    $('#type').children().remove();
+  $("#pokemon img").on("click", function () {
+    $('#pokedex h4, #pokedex dinamic, #pokedex p, #pokedex ul').show()
+    $("#type").children().remove();
     let valueId = $(this).attr("id");
     let name = "";
     let photo = "";
@@ -14,12 +15,8 @@ $(document).ready(function () {
     let weigth = "";
     let heiight = "";
     console.log(valueId);
-    
-    
 
     $.get(`http://pokeapi.co/api/v2/pokemon/${valueId}`, function (data) {
-      
-      
       console.log(data);
       name = data.name;
       photo = data.sprites.front_default;
@@ -28,20 +25,18 @@ $(document).ready(function () {
       heiight = data.height;
       //console.log(heiight);
       //console.log(type);
-     
-      for(let i = 0; i<type.length; i++){
-        
-        $('#type').append(`<li>${type[i].type.name}</li>`);
-        console.log(type[i].type.name);
-      
-      }
-     
-      $('#name').html(name);
-      $('#weight').html(weiigth);
-      $('#height').html(heiight);
-      $('#dinamic').attr('src',photo);
-    });
 
-      
+      for (let i = 0; i < type.length; i++) {
+        $("#type").append(`<li>${type[i].type.name}</li>`);
+        console.log(type[i].type.name);
+      }
+
+      $("#name").html(name);
+      $("#weight").html(weiigth);
+      $("#height").html(heiight);
+      $("#dinamic").attr("src", photo);
+    });
   });
+
+  $('#pokedex h4, #pokedex dinamic, #pokedex p, #pokedex ul').hide();
 });

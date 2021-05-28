@@ -5,3 +5,17 @@ img{
     width: 70%;
     background-size: cover;
 }
+
+#pokedex{
+    background-image: url('https://leonidasesteban.com/images/pokedex/pokedex-error.png');
+    background-size: 300px ;
+    background-repeat: no-repeat;
+}
+h4{
+    color: white;
+    margin-top: 2.5rem;
+}
+
+#dinamic{
+    margin-bottom: 6rem;
+}
