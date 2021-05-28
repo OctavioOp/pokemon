@@ -6,6 +6,7 @@ $(document).ready(function () {
   }
 
   $("img").on("click", function () {
+    $('#type').children().remove();
     let valueId = $(this).attr("id");
     let name = "";
     let photo = "";
@@ -13,20 +14,30 @@ $(document).ready(function () {
     let weigth = "";
     let heiight = "";
     console.log(valueId);
-    console.log(type);
+    
+    
 
     $.get(`http://pokeapi.co/api/v2/pokemon/${valueId}`, function (data) {
+      
+      
       console.log(data);
       name = data.name;
       photo = data.sprites.front_default;
       type = data.types;
-      weigth = data.weight;
+      weiigth = data.weight;
       heiight = data.height;
       //console.log(heiight);
+      //console.log(type);
+     
+      for(let i = 0; i<type.length; i++){
+        
+        $('#type').append(`<li>${type[i].type.name}</li>`);
+        console.log(type[i].type.name);
       
+      }
+     
       $('#name').html(name);
-      $('#type').html(type);
-      $('#weight').html(weigth);
+      $('#weight').html(weiigth);
       $('#height').html(heiight);
       $('#dinamic').attr('src',photo);
     });
