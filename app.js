@@ -9,21 +9,28 @@ $(document).ready(function () {
     let valueId = $(this).attr("id");
     let name = "";
     let photo = "";
-    let type = "";
+    let type = [];
     let weigth = "";
     let heiight = "";
     console.log(valueId);
+    console.log(type);
 
     $.get(`http://pokeapi.co/api/v2/pokemon/${valueId}`, function (data) {
-      //console.log(data);
+      console.log(data);
       name = data.name;
       photo = data.sprites.front_default;
       type = data.types;
       weigth = data.weight;
       heiight = data.height;
       //console.log(heiight);
+      
+      $('#name').html(name);
+      $('#type').html(type);
+      $('#weight').html(weigth);
+      $('#height').html(heiight);
+      $('#dinamic').attr('src',photo);
     });
 
-    $("img").html(name)
+      
   });
 });
