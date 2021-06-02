@@ -16,7 +16,7 @@ $(document).ready(function () {
     let heiight = "";
     console.log(valueId);
 
-    $.get(`http://pokeapi.co/api/v2/pokemon/${valueId}`, function (data) {
+    $.get(`https://pokeapi.co/api/v2/pokemon/${valueId}`, function (data) {
       console.log(data);
       name = data.name;
       photo = data.sprites.front_default;
